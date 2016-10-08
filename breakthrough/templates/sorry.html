@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>对不起游戏结束</title>
+    <!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="/static/css/materialize.css"  media="screen,projection"/>
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<style>
+  html, body {
+    /* 設定body高度為100% 拉到視窗可視的大小 */
+    height: 100%;
+
+  }
+
+  nav {
+    /* 設定header的高度 */
+    height: 60px;
+    box-sizing: border-box;
+  }
+
+  footer {
+    /* 設定footer的高度 */
+    height：5%
+    box-sizing: border-box;
+    padding: 0px;
+    /* 設定footer絕對位置在底部 */
+    position: fixed;
+    bottom: 0;
+    /* 展開footer寬度 */
+    width: 100%;
+  }
+</style>
+  </head>
+  <body style="background-image:url(/static/img/blue.png);background-size:cover;background-attachment:fixed">
+    <nav class="z-depth-1" style="opacity: 0.5;position:fixed;">
+      <div class="nav-wrapper">
+        <img src="/static/img/Title_Evolution.png" style="height:inherit;">
+      </div>
+    </nav>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br><br>
+    <br>
+    <br>
+
+    <div class="card white" style="opacity:0.5;">
+      <div class="card-content black-text  center">
+        <span class="card-title">对不起游戏结束，{{ user_id }}</span>
+        <ul>
+            <p>第一层得分</p>
+            <li>{{ info.score1 }}</li>
+            <p>第二层得分</p>
+            <li>{{ info.score2 }}</li>
+            <p>第三层得分</p>
+            <li>{{ info.score3 }}</li>
+            <p>总得分</p>
+            <li>{{ info.sum_score }}</li>
+        </ul>
+      </div>
+      <div class="card-action center">
+        <a href="/data_bank1">进入答题</a>
+      </div>
+    </div>
+
+
+<!-- 页脚   -->
+<footer class="page-footer" style="position:fixed;">
+  <div class="footer-copyright">
+    <div class="container black-text">
+      © 2016 Copyright Text
+      <span class="right black-text"style="margin-top:0px">计算机科学与工程学院科学与技术协会</span>
+    </div>
+  </div>
+</footer>
+    <script type="text/javascript" src="/static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/materialize.min.js"></script>
+  </body>
+</html>

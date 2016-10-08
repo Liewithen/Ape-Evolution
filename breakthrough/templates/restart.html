@@ -1,0 +1,53 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="/static/css/elephant.css">
+    <link type="text/css" rel="stylesheet" href="/static/css/materialize.css"  media="screen,projection"/>
+    <title>restart</title>
+</head>
+<body>
+
+    <div class="ele-container">
+      <div class="ele-wrapper">
+    	<div class="ele-tail"></div>
+    	<div class="ele-body">
+    	  <div class="ele-head">
+    		<div class="ele-eyebrows"></div>
+    		<div class="ele-eyes"></div>
+    		<div class="ele-mouth"></div>
+    		<div class="ele-fang-front"></div>
+    		<div class="ele-fang-back"></div>
+    		<div class="ele-ear"></div>
+    	  </div>
+    	</div>
+    	<div class="ele-leg-1 ele-leg-back">
+    	  <div class="ele-foot"></div>
+    	</div>
+    	<div class="ele-leg-2 ele-leg-front">
+    	  <div class="ele-foot"></div>
+    	</div>
+    	<div class="ele-leg-3 ele-leg-back">
+    	  <div class="ele-foot"></div>
+    	</div>
+    	<div class="ele-leg-4 ele-leg-front">
+    	  <div class="ele-foot"></div>
+    	</div>
+      </div>
+    </div>
+<br><br><br><br>
+
+<div style="text-align: center;width:50%;margin-left:25%;opacity:0.5"class="card">
+  <div class="card-content black-text center">
+    <h4 class="black-text">你回来啦~~</h4>
+    <br>
+    <form action="/data_bank{{ info.p_key }}/" method="get">
+        <input type="hidden" name="q_id" value="{{ info.p_count }}">
+        <input type="hidden" name="message" value="yes">
+        <a class="waves-effect waves-light black-text"><input type="submit" value="继续答题"></a>
+
+    </form>
+  </div>
+</div>
+
+</body>
+</html>

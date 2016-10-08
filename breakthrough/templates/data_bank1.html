@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="/static/css/materialize.css"  media="screen,projection"/>
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<style>
+  html, body {
+    /* 設定body高度為100% 拉到視窗可視的大小 */
+    height: 100%;
+
+  }
+
+  nav {
+    /* 設定header的高度 */
+    height: 60px;
+    box-sizing: border-box;
+  }
+
+  footer {
+    /* 設定footer的高度 */
+
+    box-sizing: border-box;
+    padding: 0px;
+    /* 設定footer絕對位置在底部 */
+    position: absolute;
+    bottom: 0;
+    /* 展開footer寬度 */
+    width: 100%;
+  }
+</style>
+  </head>
+  <body style="background-image:url(/static/img/blue.png);background-size:cover;background-attachment:fixed">
+    <nav class="z-depth-1" style="opacity: 0.5;position:fixed;">
+      <div class="nav-wrapper">
+        <img src="/static/img/Title_Evolution.png" style="height:inherit;">
+      </div>
+    </nav>
+
+    <br>
+    <br>
+    <br>
+
+<!-- 卡片承载 -->
+<div>
+  <form action="/data_bank1/" method="post">
+  <div class="container">
+    <br><br><br><br>
+    <div class="row">
+      <div class="col m8">
+      <h5 class="blue-grey-text" style="margin-top:5px;margin-left:5%">关卡：{{ key }}&nbsp&nbsp题目进度：{{ q_id }}/10</h5>
+      </div>
+      <div class="col m2">
+        <div class="progress" style="width:100%;height:15px;border-radius:25px;">
+          <div class="determinate" style="width: {{ HP }}%;border-radius:15px;"></div>
+        </div>
+      </div>
+      <div class="col m2">
+        <h5 class="blue-grey-text" style="margin-top:3px;">HP:{{ HP }}%</h5>
+      </div>
+    </div>
+
+    <div class="row" style="padding:5px;">
+      <div class="col s12 m12" >
+        <div class="card white" style="opacity: 0.5;">
+          <div class="card-content black-text center">
+              <p>{{ question.content }}</p>
+          </div>
+
+          <div class="card-action" style="padding:5px;margin-left:5%">
+
+                <input type="hidden" value="{{ q_id }}" name="q_id"/>
+            <div class="row">
+              <div class="col s3">
+                <p>
+                  <input type="radio" name="result" value="A" id="test1"/>
+                  <label for="test1" class="black-text">{{ question.option1 }}</label>
+                </p>
+              </div>
+              <div class="col s3">
+                <p>
+                  <input type="radio" name="result" value="B" id="test2"/>
+                  <label for="test2" class="black-text">{{ question.option2 }}</label>
+                </p>
+              </div>
+              <div class="col s3">
+                <p>
+                  <input type="radio" name="result" value="C" id="test3"/>
+                  <label for="test3" class="black-text">{{ question.option3 }}</label>
+                </p>
+              </div>
+              <div class="col s3">
+                <p>
+                  <input type="radio" name="result" value="D" id="test4"/>
+                  <label for="test4" class="black-text">{{ question.option4 }}</label>
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <br>
+    <br>
+      <!-- <div class="fixed-action-btn center">
+        <a class="btn-floating btn-large red center">
+          <input type="submit" value="下一题" style="opacity: 0;width:100%;height:100%;"><h6 style="margin-top:40%">下一题</h6>
+        </a>
+      </div> -->
+
+          <div class="card-panel white center" style="opacity:0.5;margin-left:35%;width:30%;border-radius:50px;">
+              <input type="submit" value="下一题" style="border:none;background-color:white;">
+          </div>
+
+  </div>
+  </form>
+</div>
+
+
+<!-- 页脚   -->
+<footer class="page-footer" style="position:fixed">
+  <div class="footer-copyright">
+    <div class="container black-text">
+      © 2016 Copyright Text
+      <span class="right black-text">计算机科学与工程学院科学与技术协会</span>
+    </div>
+  </div>
+</footer>
+    <script type="text/javascript" src="/static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/materialize.min.js"></script>
+  </body>
+</html>
