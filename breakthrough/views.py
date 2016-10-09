@@ -116,7 +116,7 @@ def data_bank1(requests):
     # POST方法获取除了第一题的其他题目
     else:
         # 第一关题数常量
-        const_count = 2
+        const_count = 10
         user_id = requests.session.get('user_id')
         q_id = requests.POST['q_id']
         result = requests.POST['result']
@@ -150,7 +150,7 @@ def data_bank1(requests):
                 return render_to_response('data_bank1.html', {'q_id': count + 1, 'question': question, 'HP': hp})
         # 如果错误,hp减20
         else:
-            hp -= 100
+            hp -= 20
             # hp<=0死亡
             if hp <= 0:
                 set_hp(user_id, 0, 1)
@@ -339,4 +339,3 @@ def data_bank3(requests):
                     question = DataBank3.objects.get(q_id=count+1, q_class = p_class)
                     hp = Participant.objects.get(p_id=requests.session['user_id']).score3
                     return render_to_response('data_bank3.html', {'q_id': count+1, 'question': question, 'HP':hp})
-

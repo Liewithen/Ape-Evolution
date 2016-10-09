@@ -8,6 +8,9 @@
     <link type="text/css" rel="stylesheet" href="/static/css/materialize.css"  media="screen,projection"/>
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <script type="text/JavaScript">
+       window.history.forward(1);
+    </script>
 <style>
   html, body {
     /* 設定body高度為100% 拉到視窗可視的大小 */
@@ -115,7 +118,7 @@
       </div> -->
 
           <div class="card-panel white center" style="opacity:0.5;margin-left:35%;width:30%;border-radius:50px;">
-              <input type="submit" value="下一题" style="border:none;background-color:white;">
+              <input type="submit" value="下一题" id="next" style="border:none;background-color:white;">
           </div>
 
   </div>
@@ -134,5 +137,17 @@
 </footer>
     <script type="text/javascript" src="/static/js/jquery.min.js"></script>
     <script type="text/javascript" src="/static/js/materialize.min.js"></script>
+    <script type="text/javascript">
+      $("form").submit(function(){
+        var result=$('input:radio[name="result"]:checked').val();
+        if(result==null){
+          alert("请选择答案");
+          return false;
+        }
+        else {
+          return true;
+        }
+      })
+    </script>
   </body>
 </html>
