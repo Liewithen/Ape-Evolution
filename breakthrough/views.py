@@ -80,12 +80,13 @@ def start(requests):
             if Participant.objects.get(p_id=user_id).p_key > 1 or Participant.objects.get(p_id=user_id).p_count > 0:
                 # 如果通关后再次访问
                 if Participant.objects.get(p_id=user_id).p_key == 4:
-                    info = Participant.objects.get(p_id=user_id)
+                    info = Participant.objects.get(p_id=user_id)  
                     return render_to_response('sorry.html', {'user_id': user_id, 'info': info})
                 # 因为意外退出后再次访问
                 else:
                     info = Participant.objects.get(p_id=user_id)
-                    return render_to_response('restart.html', {'info': info})
+                    count = info.p_count + 1
+                    return render_to_response('restart.html', {'info': info, 'count': count})
             else:
                 return render_to_response('start.html', {'user_id': user_id})
         # 挑战失败的挑战者
@@ -118,12 +119,16 @@ def data_bank1(requests):
         # 第一关题数常量
         const_count = 10
         user_id = requests.session.get('user_id')
-        q_id = requests.POST['q_id']
+        q_id = int(requests.POST['q_id'])
         result = requests.POST['result']
         p_class = Participant.objects.get(p_id=user_id).p_class
         answer = DataBank1.objects.get(q_id=q_id, q_class=p_class).answer
         hp = Participant.objects.get(p_id=user_id).score1
         count = Participant.objects.get(p_id=user_id).p_count
+        if q_id-count <= 0:
+            Participant.objects.get(p_id=user_id).p_count = q_id
+            question = DataBank1.objects.get(q_id=q_id + 1, q_class=p_class)
+            return render_to_response('data_bank1.html', {'q_id': q_id + 1, 'question': question, 'HP': hp})
         # 如果结果正确,hp加10,最高100
         if answer == result:
             hp += 10
@@ -200,12 +205,16 @@ def data_bank2(requests):
         # 第二关题数常量
         const_count = 2
         user_id = requests.session.get('user_id')
-        q_id = requests.POST['q_id']
+        q_id = int(requests.POST['q_id'])
         result = requests.POST['result']
         p_class = Participant.objects.get(p_id=user_id).p_class
         answer = DataBank2.objects.get(q_id=q_id, q_class=p_class).answer
         hp = Participant.objects.get(p_id=user_id).score1
         count = Participant.objects.get(p_id=user_id).p_count
+        if q_id-count <= 0:
+            Participant.objects.get(p_id=user_id).p_count = q_id
+            question = DataBank2.objects.get(q_id=q_id + 1, q_class=p_class)
+            return render_to_response('data_bank2.html', {'q_id': q_id + 1, 'question': question, 'HP': hp})
         # 如果结果正确,hp加20,最高100
         if answer == result:
             hp += 20
@@ -282,13 +291,16 @@ def data_bank3(requests):
         # 第三关题数常量
         const_count = 2
         user_id = requests.session.get('user_id')
-        q_id = requests.POST['q_id']
+        q_id = int(requests.POST['q_id'])
         result = requests.POST['result']
         p_class = Participant.objects.get(p_id=user_id).p_class
         answer = DataBank3.objects.get(q_id=q_id, q_class=p_class).answer
         hp = Participant.objects.get(p_id=user_id).score1
         count = Participant.objects.get(p_id=user_id).p_count
-
+        if q_id-count <= 0:
+            Participant.objects.get(p_id=user_id).p_count = q_id
+            question = DataBank3.objects.get(q_id=q_id + 1, q_class=p_class)
+            return render_to_response('data_bank3.html', {'q_id': q_id + 1, 'question': question, 'HP': hp})
         # 如果结果正确,hp加30,最高100
         if answer == result:
             hp += 30
