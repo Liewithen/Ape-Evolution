@@ -25,11 +25,18 @@ SECRET_KEY = 'b$ue%^oq8z+v$nr$veb5tt5t%9i&*)&bzmvu75s4n8r2r2fepa'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
+
+SITE_ROOT='/Users/lizichen/Documents/Git-Store/Ape-Evolution/'
+
+
+MEDIA_ROOT = os.path.join(SITE_ROOT,'media')
+
+
+MEDIA_URL = '/media/'
 
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -104,6 +111,8 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+
+
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
 
@@ -118,8 +127,8 @@ USE_L10N = True
 USE_TZ = True
 
 
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
-
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = '/Users/lizichen/Documents/Evolution/static'

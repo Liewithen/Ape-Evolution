@@ -17,11 +17,13 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from breakthrough.views import *
+from django.conf import settings
+from django.conf import settings
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^login/', login),
     url(r'^start/', start),
     url(r'^data_bank1/$', data_bank1),
     url(r'^data_bank2/$', data_bank2),
-    url(r'^data_bank3/$', data_bank3)
+    url(r'^data_bank3/$', data_bank3),
 ]

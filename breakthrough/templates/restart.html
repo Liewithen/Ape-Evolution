@@ -3,6 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <link rel="stylesheet" type="text/css" href="/static/css/elephant.css">
     <link type="text/css" rel="stylesheet" href="/static/css/materialize.css"  media="screen,projection"/>
+    <link rel="shortcut icon" href="/static/favicon.ico">
     <title>restart</title>
     <script type="text/JavaScript">
        window.history.forward(1);
@@ -44,7 +45,7 @@
     <h4 class="black-text">你回来啦~~</h4>
     <br>
     <form action="/data_bank{{ info.p_key }}/" method="get">
-        <input type="hidden" name="q_id" value="{{ info.p_count }}">
+        <input type="hidden" name="q_id" value="{{ count }}">
         <input type="hidden" name="message" value="yes">
         <a class="waves-effect waves-light black-text"><input type="submit" value="继续答题"></a>
 

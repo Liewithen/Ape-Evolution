@@ -1,12 +1,100 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
-<head>
-    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>trans</title>
-</head>
-<body>
-<h3>恭喜来到第三关</h3>
-<a href="/data_bank3">开始</a>
-</body>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <!--Import Google Icon Font-->
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="/static/css/materialize.css"  media="screen,projection"/>
+    <link rel="shortcut icon" href="/static/favicon.ico">
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <script type="text/JavaScript">
+       window.history.forward(1);
+    </script>
+<style>
+  html, body {
+    /* 設定body高度為100% 拉到視窗可視的大小 */
+    height: 100%;
+
+  }
+
+  nav {
+    /* 設定header的高度 */
+    height: 60px;
+    box-sizing: border-box;
+  }
+
+  footer {
+    /* 設定footer的高度 */
+    height：5%
+    box-sizing: border-box;
+    padding: 0px;
+    /* 設定footer絕對位置在底部 */
+    position: fixed;
+    bottom: 0;
+    /* 展開footer寬度 */
+    width: 100%;
+  }
+</style>
+  </head>
+  <body style="background-image:url(/static/img/yellow.jpg);background-size:cover;background-attachment:fixed">
+    <nav class="z-depth-1" style="opacity: 0.5;position:fixed;">
+      <div class="nav-wrapper center">
+      <img src="/static/img/Title_Evolution.png" style="height:inherit;">
+      </div>
+    </nav>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+<!-- 没什么卵用的浮动按钮 -->
+    <!-- <div class="fixed-action-btn" style="bottom: 90px; right: 24px;">
+      <a class="btn-floating btn-large red">
+        <i class="large mdi-editor-mode-edit"></i>
+      </a>
+      <ul>
+        <li><a class="btn-floating red"><i class="large mdi-editor-insert-chart"></i></a></li>
+        <li><a class="btn-floating yellow darken-1"><i class="large mdi-editor-format-quote"></i></a></li>
+        <li><a class="btn-floating green"><i class="large mdi-editor-publish"></i></a></li>
+        <li><a class="btn-floating blue"><i class="large mdi-editor-attach-file"></i></a></li>
+      </ul>
+    </div> -->
+
+<!-- 卡片承载 -->
+
+
+    <div class="card white" style="opacity:0.5;">
+      <div class="card-content black-text  center">
+        <span class="card-title">你进化了！</span>
+      </div>
+      <div class="card-action center">
+        <a href="/data_bank3">进入下一关</a>
+      </div>
+    </div>
+
+
+<!-- 页脚   -->
+<footer class="page-footer" style="position:fixed;">
+  <div class="footer-copyright">
+    <div class="container black-text">
+      © 2016 Copyright Text
+      <span class="right black-text"style="margin-top:0px">计算机科学与工程学院科学与技术协会</span>
+    </div>
+  </div>
+</footer>
+    <script type="text/javascript" src="/static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/materialize.min.js"></script>
+  </body>
 </html>
