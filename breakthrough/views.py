@@ -15,7 +15,6 @@ def find_user(user_id, user_name):
         Participant.objects.get(p_id=user_id)
     except ObjectDoesNotExist:
         p_class = set_class()
-        #p_class = 1
         Participant.objects.create(p_id=user_id, p_name=user_name, p_class=p_class, p_key=1, score1=100, p_count=0)
         return True
     if Participant.objects.get(p_id=user_id).p_alive:
@@ -113,14 +112,18 @@ def data_bank1(requests):
     # POST方法获取除了第一题的其他题目
     else:
         # 第一关题数常量
-        const_count = 3
+        const_count = 20
         user_id = requests.session.get('user_id')
-        q_id = requests.POST['q_id']
+        q_id = int(requests.POST['q_id'])
         result = requests.POST['result']
         p_class = Participant.objects.get(p_id=user_id).p_class
         answer = DataBank1.objects.get(q_id=q_id, q_class=p_class).answer
         hp = Participant.objects.get(p_id=user_id).score1
         count = Participant.objects.get(p_id=user_id).p_count
+        if q_id-count <= 0:
+            Participant.objects.get(p_id=user_id).p_count = q_id
+            question = DataBank1.objects.get(q_id=q_id + 1, q_class=p_class)
+            return render_to_response('data_bank1.html', {'q_id': q_id + 1, 'question': question, 'HP': hp})
         # 如果结果正确,hp加10,最高100
         if answer == result:
             hp += 10
@@ -197,14 +200,18 @@ def data_bank2(requests):
     # POST方法获取除了第二题的其他题目
     else:
         # 第二关题数常量
-        const_count = 3
+        const_count = 10
         user_id = requests.session.get('user_id')
-        q_id = requests.POST['q_id']
+        q_id = int(requests.POST['q_id'])
         result = requests.POST['result']
         p_class = Participant.objects.get(p_id=user_id).p_class
         answer = DataBank2.objects.get(q_id=q_id, q_class=p_class).answer
         hp = Participant.objects.get(p_id=user_id).score2
         count = Participant.objects.get(p_id=user_id).p_count
+        if q_id-count <= 0:
+            Participant.objects.get(p_id=user_id).p_count = q_id
+            question = DataBank2.objects.get(q_id=q_id + 1, q_class=p_class)
+            return render_to_response('data_bank2.html', {'q_id': q_id + 1, 'question': question, 'HP': hp})
         # 如果结果正确,hp加20,最高100
         if answer == result:
             hp += 20
@@ -281,15 +288,18 @@ def data_bank3(requests):
     # POST方法获取除了第一题的其他题目
     else:
         # 第三关题数常量
-        const_count = 3
+        const_count = 5
         user_id = requests.session.get('user_id')
-        q_id = requests.POST['q_id']
+        q_id = int(requests.POST['q_id'])
         result = requests.POST['result']
         p_class = Participant.objects.get(p_id=user_id).p_class
         answer = DataBank3.objects.get(q_id=q_id, q_class=p_class).answer
         hp = Participant.objects.get(p_id=user_id).score3
         count = Participant.objects.get(p_id=user_id).p_count
-
+        if q_id-count <= 0:
+            Participant.objects.get(p_id=user_id).p_count = q_id
+            question = DataBank3.objects.get(q_id=q_id + 1, q_class=p_class)
+            return render_to_response('data_bank3.html', {'q_id': q_id + 1, 'question': question, 'HP': hp})
         # 如果结果正确,hp加30,最高100
         if answer == result:
             hp += 30
